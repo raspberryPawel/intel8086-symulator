@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Intel 8086</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="left">
+        <fieldset>
+          <legend>Rejestry</legend>
+          <div>
+            <span>AX</span>
+            <input
+              type="number"
+              name=""
+              id="ax"
+              value="ff00ff"
+              style="display: none;"
+            />
+            <span id="spanax">#ffffaa</span class="span">
+          </div>
+          <div>
+            <span>BX</span>
+            <input
+              type="number"
+              name=""
+              id="bx"
+              value="ffffff"
+              style="display: none;"
+            />
+            <span id="spanbx">#ffffaa</span>
+          </div>
+          <div>
+            <span>CX</span>
+            <input
+              type="number"
+              name=""
+              id="cx"
+              value="00ffff"
+              style="display: none;"
+            />
+            <span id="spancx">#ffffaa</span>
+          </div>
+          <div>
+            <span>DX</span>
+            <input
+              type="number"
+              name=""
+              id="dx"
+              value="ffffaa"
+              style="display: none;"
+            />
+            <span id="spandx">#ffffaa</span>
+          </div>
+        </fieldset>
+      </div>
+      <div id="right">
+        <fieldset>
+          <legend>Komendy</legend>
+          <div>
+            <span>Komenda</span>
+            <select name="" id="comand">
+              <option value="MOV">MOV</option>
+              <option value="SWAP">SWAP</option>
+            </select>
+          </div>
+          <div>
+            <span>Parametr 1.</span>
+            <select name="" id="firstComand">
+              <option selected="selected" id="fax" value="ax">AX</option>
+              <option id="fbx" value="bx" style="display: none;">BX</option>
+              <option id="fcx" value="cx">CX</option>
+              <option id="fdx" value="dx">DX</option>
+            </select>
+          </div>
+          <div>
+            <span>Parametr 2.</span>
+            <select name="" id="secondComand">
+              <option id="sax" value="ax" style="display: none;">AX</option>
+              <option selected="selected" id="sbx" value="bx">BX</option>
+              <option id="scx" value="cx">CX</option>
+              <option id="sdx" value="dx">DX</option>
+            </select>
+          </div>
+          <div>
+            <button id="go">Wykonaj Rozkaz</button>
+          </div>
+        </fieldset>
+      </div>
+    </main>
+  </body>
+</html>
