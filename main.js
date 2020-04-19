@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     ids.forEach(element => {
+        document.getElementById(element).addEventListener('input', function () {
+            console.log(this.value);
+            console.log((isNaN(this.value)))
+            if (isNaN(this.value)) this.value = this.value.slice(0, this.value.length - 1)
+        });
+    });
+
+    ids.forEach(element => {
         document.getElementById(`span${element}`).addEventListener('click', function () {
             document.getElementById(element).parentElement.children[1].style.display = 'inline-block';
             document.getElementById(element).parentElement.children[1].focus();
