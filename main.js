@@ -11,13 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'SWAP':
                 const fv = document.getElementById(`span${first}`).innerText;
                 const sv = document.getElementById(`span${second}`).innerText;
-                console.log(fv, sv);
                 document.getElementById(`span${second}`).innerText = fv;
                 document.getElementById(`span${first}`).innerText = sv;
                 break;
         }
     });
+
     const ids = ['ax', 'bx', 'cx', 'dx'];
+
     document.getElementById('firstComand').addEventListener('change', function () {
         const fv = document.getElementById('firstComand').value;
         ids.forEach(element => {
@@ -49,6 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById(element).parentElement.children[2].style.display = 'none';
         });
     });
-
-
 });
