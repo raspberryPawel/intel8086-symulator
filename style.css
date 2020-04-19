@@ -1,44 +1,56 @@
-body{
-    margin: 0;
-    padding: 20px;
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif !important;
+}
+button,
+select {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500;
 }
 
-main{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    /* height: 100vh; */
-    flex-wrap: wrap;
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* height: 100vh; */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-fieldset{
-    height: 160px
+fieldset {
+  height: 170px;
+  margin-top: 20px;
 }
 
-#right, #left{
-    height: 100%;
-    width: 300px;
-    min-width: 300px;
-    margin-right: 20px;
+#right,
+#left {
+  height: 100%;
+  width: 300px;
+  min-width: 300px;
 }
 
-#left div{
-    margin: 10px;
+#left div {
+  margin: 10px;
 }
-#left div input{
-    margin-left: 10px;
-}
-
-#right div{
-    margin: 10px;
+#left div input {
+  margin-left: 10px;
 }
 
-#right div select{
-    margin-left: 10px;
-    width: 100px;
+#right div {
+  margin: 10px;
 }
 
-#right div span{
-    width: 80px;
-    display: inline-block;
+#right div select {
+  margin-left: 10px;
+  width: 100px;
+}
+
+#right div span {
+  width: 80px;
+  display: inline-block;
+}
+
+button {
+  margin-top: 10px;
 }
