@@ -1,61 +1,86 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('go').addEventListener('click', function () {
-        const first = document.getElementById('firstComand').value;
-        const second = document.getElementById('secondComand').value;
-        const command = document.getElementById('comand').value;
-
-        switch (command) {
-            case 'MOV':
-                document.getElementById(`span${second}`).innerHTML = document.getElementById(`span${first}`).innerText;
-                break;
-            case 'SWAP':
-                const fv = document.getElementById(`span${first}`).innerText;
-                const sv = document.getElementById(`span${second}`).innerText;
-                document.getElementById(`span${second}`).innerText = fv;
-                document.getElementById(`span${first}`).innerText = sv;
-                break;
-        }
-    });
-
-    const ids = ['ax', 'bx', 'cx', 'dx'];
-
-    document.getElementById('firstComand').addEventListener('change', function () {
-        const fv = document.getElementById('firstComand').value;
-        ids.forEach(element => {
-            document.getElementById(`s${element}`).style.display = 'block';
-        });
-        document.getElementById(`s${fv}`).style.display = 'none';
-    });
-
-    document.getElementById('secondComand').addEventListener('change', function () {
-        const sv = document.getElementById('secondComand').value;
-        ids.forEach(element => {
-            document.getElementById(`f${element}`).style.display = 'block';
-        });
-        document.getElementById(`f${sv}`).style.display = 'none';
-    });
-
-    ids.forEach(element => {
-        document.getElementById(element).addEventListener('blur', function () {
-            document.getElementById(element).parentElement.children[1].style.display = 'none';
-            document.getElementById(element).parentElement.children[2].innerHTML = `#${Number(this.value).toString(16)}`;
-            document.getElementById(element).parentElement.children[2].style.display = 'inline-block';
-        });
-    });
-
-    ids.forEach(element => {
-        document.getElementById(element).addEventListener('input', function () {
-            console.log(this.value);
-            console.log((isNaN(this.value)))
-            if (isNaN(this.value)) this.value = this.value.slice(0, this.value.length - 1)
-        });
-    });
-
-    ids.forEach(element => {
-        document.getElementById(`span${element}`).addEventListener('click', function () {
-            document.getElementById(element).parentElement.children[1].style.display = 'inline-block';
-            document.getElementById(element).parentElement.children[1].focus();
-            document.getElementById(element).parentElement.children[2].style.display = 'none';
+  document.getElementById("go").addEventListener("click", function () {
+    const e = document.getElementById("firstComand").value,
+      n = document.getElementById("secondComand").value;
+    switch (document.getElementById("comand").value) {
+      case "MOV":
+        document.getElementById(`span${n}`).innerHTML = document.getElementById(
+          `span${e}`
+        ).innerText;
+        break;
+      case "SWAP":
+        const t = document.getElementById(`span${e}`).innerText,
+          d = document.getElementById(`span${n}`).innerText;
+        (document.getElementById(`span${n}`).innerText = t),
+          (document.getElementById(`span${e}`).innerText = d);
+        break;
+      case "ADD":
+        const l =
+          document.getElementById(`${e}`).value +
+          document.getElementById(`${n}`).value;
+        document.getElementById(`span${n}`).innerText = `#${Number(l).toString(
+          16
+        )}`;
+        break;
+      case "SUB":
+        const o =
+          document.getElementById(`${e}`).value -
+          document.getElementById(`${n}`).value;
+        document.getElementById(`span${n}`).innerText = `#${Number(o).toString(
+          16
+        )}`;
+    }
+  });
+  const e = ["ax", "bx", "cx", "dx"];
+  document
+    .getElementById("firstComand")
+    .addEventListener("change", function () {
+      const n = document.getElementById("firstComand").value;
+      e.forEach((e) => {
+        document.getElementById(`s${e}`).style.display = "block";
+      }),
+        (document.getElementById(`s${n}`).style.display = "none");
+    }),
+    document
+      .getElementById("secondComand")
+      .addEventListener("change", function () {
+        const n = document.getElementById("secondComand").value;
+        e.forEach((e) => {
+          document.getElementById(`f${e}`).style.display = "block";
+        }),
+          (document.getElementById(`f${n}`).style.display = "none");
+      }),
+    e.forEach((e) => {
+      document.getElementById(e).addEventListener("blur", function () {
+        (document.getElementById(e).parentElement.children[1].style.display =
+          "none"),
+          (document.getElementById(
+            e
+          ).parentElement.children[2].innerHTML = `#${Number(
+            this.value
+          ).toString(16)}`),
+          (document.getElementById(e).parentElement.children[2].style.display =
+            "inline-block");
+      });
+    }),
+    e.forEach((e) => {
+      document.getElementById(e).addEventListener("input", function () {
+        console.log(this.value),
+          console.log(isNaN(this.value)),
+          isNaN(this.value) &&
+            (this.value = this.value.slice(0, this.value.length - 1));
+      });
+    }),
+    e.forEach((e) => {
+      document
+        .getElementById(`span${e}`)
+        .addEventListener("click", function () {
+          (document.getElementById(e).parentElement.children[1].style.display =
+            "inline-block"),
+            document.getElementById(e).parentElement.children[1].focus(),
+            (document.getElementById(
+              e
+            ).parentElement.children[2].style.display = "none");
         });
     });
 });
